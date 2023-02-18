@@ -22,5 +22,5 @@ author: HCC CyberSecurity Club
 
 # Rules
 
-## Fraternizing
+## No Fraternizing
 ## AI/Cheating
