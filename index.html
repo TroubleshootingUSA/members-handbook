@@ -6,23 +6,45 @@
     <script>
         $(document).ready(function() {
             // find all the headings on the page
-            var headings = $("h1, h2, h3, h4, h5, h6");
+            const headings = $("h1, h2, h3, h4, h5, h6");
 
             // create an ordered list to hold the table of contents
-            var toc = $("<ol></ol>");
+            let toc = $("<ol></ol>");
 
             // loop through the headings and add them to the table of contents
-            headings.each(function(index) {
+            var lastLevel = level;
+
+            function createEntry() {
                 // create an anchor link to the heading
                 var anchor = $("<a></a>").attr("href", "#" + this.id).text($(this).text());
                 // create a list item for the heading
                 var li = $("<li></li>").append(anchor);
                 // add the list item to the table of contents
-                toc.append(li);
+            }
+
+            headings.each(function(index) {
+                lastLevel = level;
+                let level = parseInt(this.tagName.substring(1));
+
+                createEntry();
+                if (level === 1) {
+                    toc.append(li);
+                }
+
+                else if (level < lastLevel) {
+                    createEntry();
+                    toc.append(li);
+                }
+
             });
 
             // add the table of contents to a container element
             $("#toc-container").append(toc);
+        });
+    </script>
+    <script>
+        $(function() {
+            $("#body").load("body.html");
         });
     </script>
 
@@ -30,20 +52,7 @@
   <body>
 
       <div id="toc-container"></div>
-
-      <h1 id="intro"           class="chapter">Introduction</h1>
-      <h1 id="no_fraternizing" class="chapter">Fraternizing and the Preservation of Neutrality</a></h1>
-      <h1 id="no_cheating"     class="chapter">Cheating</a></h1>
-      <h1>
-
-          <h1 class="chapter" id="reading_docs">Reading Documentation</h1>
-          <h2 class="section"                         >Introduction to Linux/UNIX manpages</h2>
-          <h2 class="section" id="other-documentation">Tips on How to Read Developer Documentation<h2>
-
-              <h1 class="chapter" id="#conclusion">Conclusion</a>
-
-                  <!-- Intro here -->
-                  <p>Intro here</p>
+      <div id="body"></div>
 
   </body>
 </html>
