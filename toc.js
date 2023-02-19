@@ -25,7 +25,6 @@ $(document).ready(function() {
 
         if (level === 1) {
             toc.append(li);
-            console.log("Hit!");
         }
 
         else if (level > lastLevel) {
