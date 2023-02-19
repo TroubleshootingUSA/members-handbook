@@ -3,6 +3,7 @@
     <title>HCC Cybersecurity Club Handbook</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 
     <script>
         $(document).ready(function() {
             // find all the headings on the page
@@ -42,17 +43,37 @@
             $("#toc-container").append(toc);
         });
     </script>
+    -->
+
     <script>
         $(function() {
-            $("#body").load("body.html");
+            $('.body').load("header.html");
         });
     </script>
-
   </head>
   <body>
 
+      <!--
+          TOC
+      -->
+
       <div id="toc-container"></div>
-      <div id="body"></div>
+
+      <!--
+          TOC
+      -->
+
+      <h1 id="intro"           class="chapter">Introduction</h1>
+      <h1 id="no_fraternizing" class="chapter">Fraternizing and the Preservation of Neutrality</a></h1>
+      <h1 id="no_cheating"     class="chapter">Cheating</a></h1>
+
+      <h1 class="chapter" id="reading_docs">Reading Documentation</h1>
+          <h2 class="section"                         >Introduction to Linux/UNIX manpages</h2>
+          <h2 class="section" id="other-documentation">Tips on How to Read Developer Documentation<h2>
+
+      <h1 class="chapter" id="conclusion">Conclusion</h1>
+
+
 
   </body>
 </html>
