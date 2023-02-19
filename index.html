@@ -2,57 +2,39 @@
   <head>
     <title>HCC Cybersecurity Club Handbook</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // find all the headings on the page
-            const headings = $("h1, h2, h3, h4, h5, h6");
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"/></script>
+    <script src="toc.js"></script>
 
-            // create an ordered list to hold the table of contents
-            let toc = $("<ol></ol>");
-
-            // loop through the headings and add them to the table of contents
-            var lastLevel = level;
-
-            function createEntry() {
-                // create an anchor link to the heading
-                var anchor = $("<a></a>").attr("href", "#" + this.id).text($(this).text());
-                // create a list item for the heading
-                var li = $("<li></li>").append(anchor);
-                // add the list item to the table of contents
-            }
-
-            headings.each(function(index) {
-                lastLevel = level;
-                let level = parseInt(this.tagName.substring(1));
-
-                createEntry();
-                if (level === 1) {
-                    toc.append(li);
-                }
-
-                else if (level < lastLevel) {
-                    createEntry();
-                    toc.append(li);
-                }
-
-            });
-
-            // add the table of contents to a container element
-            $("#toc-container").append(toc);
-        });
-    </script>
     <script>
         $(function() {
-            $("#body").load("body.html");
+            $('.body').load("header.html");
         });
     </script>
-
   </head>
   <body>
 
-      <div id="toc-container"></div>
-      <div id="body"></div>
+      <!-- Intro might go here -->
+      <h1>HCC Cybersecurity Club Handbook</h1>
+
+      <p>This is the start of the HCC Cybersecurity Club Handbook.</p>
+      <!--
+          TOC
+      -->
+
+      <ol>
+      <li><a href="./intro.html"          >Introduction</a></li>
+      <li><a href="./no_fraternizing.html">Fraternizing and the Preservation of Neutrality</a></li>
+      <li><a href="./no_cheating.html"    >Cheating</a></li>
+
+      <li><a href="#reading_docs">Reading Documentation</a></li>
+      <ol>
+          <li><a href="#manpages">Introduction to Linux/UNIX manpages</a></li>
+          <li><a href="#other-documentation">Tips on How to Read Developer Documentation</a></li>
+      </ol>
+
+      <li><a href="./conclusion.html">Conclusion</a></li>
+
+      </ol>
 
   </body>
 </html>
